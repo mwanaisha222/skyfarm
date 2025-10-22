@@ -24,7 +24,7 @@ demo_farmers = [
         "product_name": "Fresh Yellow Maize",
         "product_description": "High-quality yellow maize, freshly harvested from organic farms. Perfect for posho and animal feed.",
         "product_price": 150000,
-        "product_image": "https://images.unsplash.com/photo-1605493547519-0d4bc50e46ca?w=800",
+        "product_image": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80",
         "phone_number": "+256700123456"
     },
     {
@@ -38,7 +38,7 @@ demo_farmers = [
         "product_name": "Arabica Coffee Beans",
         "product_description": "Premium Arabica coffee beans from the slopes of Mount Elgon. Sun-dried and carefully sorted.",
         "product_price": 25000,
-        "product_image": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800",
+        "product_image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80",
         "phone_number": "+256701234567"
     },
     {
@@ -52,7 +52,7 @@ demo_farmers = [
         "product_name": "Red Kidney Beans",
         "product_description": "Organic red kidney beans, rich in protein. Grown without chemical fertilizers.",
         "product_price": 8000,
-        "product_image": "https://images.unsplash.com/photo-1583227264777-8e0d6d2b95b1?w=800",
+        "product_image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=800&q=80",
         "phone_number": "+256702345678"
     },
     {
@@ -80,7 +80,7 @@ demo_farmers = [
         "product_name": "Fresh Red Tomatoes",
         "product_description": "Juicy red tomatoes, perfect for cooking. Pesticide-free and vine-ripened.",
         "product_price": 3500,
-        "product_image": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800",
+        "product_image": "https://images.unsplash.com/photo-1546470427-227e4bc6ed17?w=800&q=80",
         "phone_number": "+256704567890"
     },
     {
@@ -94,7 +94,7 @@ demo_farmers = [
         "product_name": "Raw Groundnuts (Peanuts)",
         "product_description": "Fresh groundnuts from Northern Uganda. High oil content, perfect for paste or roasting.",
         "product_price": 12000,
-        "product_image": "https://images.unsplash.com/photo-1566393028958-714e4339bb72?w=800",
+        "product_image": "https://images.unsplash.com/photo-1582033043894-d4f89ff73b7f?w=800&q=80",
         "phone_number": "+256705678901"
     },
     {
@@ -108,7 +108,7 @@ demo_farmers = [
         "product_name": "Upland Rice",
         "product_description": "Quality upland rice from Jinja wetlands. Polished and ready for cooking.",
         "product_price": 4500,
-        "product_image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800",
+        "product_image": "https://images.unsplash.com/photo-1516684732162-798a0062be99?w=800&q=80",
         "phone_number": "+256706789012"
     },
     {
@@ -136,7 +136,7 @@ demo_farmers = [
         "product_name": "Irish Potatoes",
         "product_description": "Fresh Irish potatoes from the highlands of Kabale. Perfect for chips and cooking.",
         "product_price": 3000,
-        "product_image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=800",
+        "product_image": "https://images.unsplash.com/photo-1518977825259-1573e93f5e78?w=800&q=80",
         "phone_number": "+256708901234"
     },
     {

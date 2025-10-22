@@ -135,8 +135,12 @@ def about():
 
 @routes.route('/marketplace')
 def marketplace():
-    # Get all farmers with product information
-    products = Farmer.query.filter(Farmer.product_name.isnot(None)).all()
+    # Get only specific farmers whose images are working for demo
+    allowed_farmers = ['Rebecca Nalongo', 'Robert Tumwine', 'David Walusimbi', 'Sarah Namukasa', 'James Ssemakula']
+    products = Farmer.query.filter(
+        Farmer.product_name.isnot(None),
+        Farmer.name.in_(allowed_farmers)
+    ).all()
     return render_template('marketplace.html', products=products)
 
 @routes.route('/contact')
