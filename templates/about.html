@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About SkyFarm</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.05), rgba(76, 175, 80, 0.05));
+        }
+
+        /* Header Styles */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #7CB342;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #7CB342;
+        }
+
+        .contact-btn {
+            background: #7CB342;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: #689F38;
+            transform: translateY(-2px);
+        }
+
+        /* About Page Styles */
+        .about-container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 6rem auto 4rem;
+        }
+
+        .about-container h2 {
+            color: #4CAF50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .about-container h3 {
+            color: #4CAF50;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about-container p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .feature-list li::before {
+            content: '🌱';
+            color: #7CB342;
+            font-size: 1.2rem;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #8BC34A, #7CB342);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
+            margin-top: 1.5rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(139, 195, 74, 0.5);
+            background: linear-gradient(135deg, #7CB342, #689F38);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #7CB342;
+        }
+
+        .footer p {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Flash Messages */
+        .response-message.success {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem auto;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .about-container {
+                padding: 1.5rem;
+                margin: 4rem auto 3rem;
+            }
+
+            .about-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-container h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">🌱</div>
+            <span>SkyFarm</span>
+        </div>
+        <nav class="nav">
+            <a href="{{ url_for('routes.home') }}">Home</a>
+            <a href="{{ url_for('routes.about') }}">About</a>
+            <a href="{{ url_for('routes.contact') }}">Contact</a>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('routes.farmers') }}">Farmers</a>
+                <a href="{{ url_for('routes.register') }}">Register</a>
+                <a href="{{ url_for('routes.logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('routes.signup') }}">Sign Up</a>
+                <a href="{{ url_for('routes.login') }}">Login</a>
+            {% endif %}
+            <a href="{{ url_for('routes.contact') }}" class="contact-btn">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="response-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- About Page Content -->
+        <div class="about-container">
+            <h2>About SkyFarm</h2>
+            <p>SkyFarm is dedicated to empowering farmers in Uganda and beyond by providing accessible, technology-driven agricultural solutions. Our mission is to cultivate a greener future through sustainable farming practices and innovative tools tailored to local needs.</p>
+            <h3>Our Vision</h3>
+            <p>We envision a world where every farmer has the knowledge and resources to thrive. By bridging traditional farming with modern technology, SkyFarm delivers actionable advice to enhance soil health, boost crop yields, and promote sustainability.</p>
+            <h3>Our Features</h3>
+            <ul class="feature-list">
+                <li><strong>USSD Accessibility:</strong> Access farming advice via SMS/USSD on any phone, ensuring inclusivity for all farmers.</li>
+                <li><strong>Tailored Recommendations:</strong> Get personalized advice based on your district, crop, and local conditions.</li>
+                <li><strong>Sustainable Practices:</strong> Learn eco-friendly methods to improve soil health and crop resilience.</li>
+                <li><strong>Community Support:</strong> Connect with a network of farmers and experts to share knowledge and grow together.</li>
+            </ul>
+            <a href="{{ url_for('routes.register') }}" class="cta-btn">Join SkyFarm Today</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div>
+            <a href="{{ url_for('routes.home') }}">Home</a>
+            <a href="{{ url_for('routes.about') }}">About</a>
+            <a href="{{ url_for('routes.contact') }}">Contact</a>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('routes.farmers') }}">Farmers</a>
+                <a href="{{ url_for('routes.register') }}">Register</a>
+                <a href="{{ url_for('routes.logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('routes.signup') }}">Sign Up</a>
+                <a href="{{ url_for('routes.login') }}">Login</a>
+            {% endif %}
+        </div>
+        <p>&copy; 2025 SkyFarm. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

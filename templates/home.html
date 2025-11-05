@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyFarm - Cultivating a Greener Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.05), rgba(76, 175, 80, 0.05));
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        .header {
+            position: relative;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #7CB342;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #7CB342;
+        }
+
+        .contact-btn {
+            background: #7CB342;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: #689F38;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #2E7D32 0%, #558B2F 50%, #689F38 100%);
+            color: white;
+            text-align: center;
+            padding: 8rem 5% 6rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 195, 74, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(76, 175, 80, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(124, 179, 66, 0.2) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .register-btn, .secondary-btn {
+            margin: 0 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .register-btn {
+            background: linear-gradient(135deg, #8BC34A, #7CB342);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(139, 195, 74, 0.5);
+            background: linear-gradient(135deg, #7CB342, #689F38);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            padding: 1.2rem 3rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-btn:hover {
+            background: white;
+            color: #4CAF50;
+            transform: translateY(-3px);
+        }
+
+        /* Features Section */
+        .features {
+            width: 100%;
+            padding: 5rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            background: white;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 15px;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card h3 {
+            color: #4CAF50;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .learn-more {
+            color: #4CAF50;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .learn-more:hover {
+            color: #388E3C;
+        }
+
+        /* Testimonial Section */
+        .testimonials {
+            background: linear-gradient(135deg, #f5f5f5, #e8f5e9);
+            padding: 5rem 5%;
+            text-align: center;
+            width: 100%;
+        }
+
+        .testimonials h2 {
+            color: #4CAF50;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-card p {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card h4 {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Footer Section */
+        .footer {
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #7CB342;
+        }
+
+        .footer p {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Flash Messages */
+        .response-message.success {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 5%;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem 3%;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 5rem 3% 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero .register-btn, .hero .secondary-btn {
+                display: inline-block;
+                margin: 0.5rem;
+                padding: 1rem 2rem;
+                width: auto;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                padding: 3rem 3%;
+                gap: 2rem;
+            }
+
+            .testimonials {
+                padding: 3rem 3%;
+            }
+
+            .testimonials h2 {
+                font-size: 2rem;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer {
+                padding: 2rem 3%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">🌱</div>
+            <span>SkyFarm</span>
+        </div>
+        <nav class="nav">
+            <a href="{{ url_for('routes.home') }}">Home</a>
+            <a href="{{ url_for('routes.about') }}">About</a>
+            <a href="{{ url_for('routes.marketplace') }}">Marketplace</a>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('routes.farmers') }}">Farmers</a>
+                <a href="{{ url_for('routes.register') }}">Register as Farmer</a>
+                <a href="{{ url_for('routes.logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('routes.signup') }}">Sign Up</a>
+                <a href="{{ url_for('routes.login') }}">Login</a>
+            {% endif %}
+            <a href="{{ url_for('routes.contact') }}" class="contact-btn">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="response-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Cultivating a Greener Future</h1>
+            <p>SkyFarm empowers farmers in Uganda and beyond with tailored agricultural advice to boost productivity and promote sustainable farming practices.</p>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('routes.register') }}" class="register-btn">Register as Farmer</a>
+            {% else %}
+                <a href="{{ url_for('routes.signup') }}" class="register-btn">Get Started</a>
+            {% endif %}
+            <a href="{{ url_for('routes.about') }}" class="secondary-btn">Learn More</a>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="feature-card">
+                <h3>USSD Accessibility</h3>
+                <p>Access farming advice via SMS/USSD on any phone, ensuring inclusivity for all farmers, even without internet access.</p>
+                <a href="{{ url_for('routes.about') }}" class="learn-more">Learn More <span>→</span></a>
+            </div>
+            <div class="feature-card">
+                <h3>Farmers Marketplace</h3>
+                <p>Buy and sell fresh produce directly from farmers. Connect with local farmers and get the best prices for quality products.</p>
+                <a href="{{ url_for('routes.marketplace') }}" class="learn-more">Visit Marketplace <span>🛒</span></a>
+            </div>
+            <div class="feature-card">
+                <h3>Tailored Recommendations</h3>
+                <p>Receive personalized advice based on your district, crop, and local weather conditions to maximize yields.</p>
+                <a href="{{ url_for('routes.about') }}" class="learn-more">Learn More <span>→</span></a>
+            </div>
+            <div class="feature-card">
+                <h3>Sustainable Practices</h3>
+                <p>Learn eco-friendly methods to improve soil health, reduce environmental impact, and ensure long-term crop resilience.</p>
+                <a href="{{ url_for('routes.about') }}" class="learn-more">Learn More <span>→</span></a>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="testimonials">
+            <h2>What Farmers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"SkyFarm's USSD advice helped me choose the right crops for my district. My maize yield doubled this season!"</p>
+                    <h4>John K., Masaka</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The personalized recommendations saved my coffee plantation from pest damage. Highly recommend!"</p>
+                    <h4>Maria N., Kabale</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Sustainable farming tips from SkyFarm improved my soil health. It's easy to use, even on my basic phone."</p>
+                    <h4>Peter O., Gulu</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div>
+                <a href="{{ url_for('routes.home') }}">Home</a>
+                <a href="{{ url_for('routes.about') }}">About</a>
+                <a href="{{ url_for('routes.contact') }}">Contact</a>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('routes.farmers') }}">Farmers</a>
+                    <a href="{{ url_for('routes.register') }}">Register</a>
+                    <a href="{{ url_for('routes.logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('routes.signup') }}">Sign Up</a>
+                    <a href="{{ url_for('routes.login') }}">Login</a>
+                {% endif %}
+            </div>
+            <p>&copy; 2025 SkyFarm. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
